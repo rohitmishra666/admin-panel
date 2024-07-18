@@ -129,7 +129,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Happy coding! If you have any questions or need further assistance, please feel free to open an issue or contact me.
 
 ---
-
-### Author
-
-[Your Name](https://github.com/yourusername)
