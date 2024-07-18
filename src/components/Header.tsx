@@ -36,10 +36,10 @@ function Header() {
     socket.on('receiveNotificationFromUser', (data) => {
       setNotifications((prev) => [data, ...prev]);
     })
-  });
+  }, []);
 
   return (
-    <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+    <header className="sticky z-10 top-0 flex h-16 items-center gap-4 border-b bg-black bg-opacity-100 px-4 md:px-6">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
           href="#"
@@ -54,17 +54,16 @@ function Header() {
         >
           Dashboard
         </Link>
-        <div className=''>
-          <Button
-            variant="default"
-            size="sm"
-            onClick={sendNotification}
-          >
-            Send Notification
-          </Button>
-        </div>
       </nav>
-      <div className="flex gap-4 md:ml-auto md:gap-2 lg:gap-4">
+      <div className="ml-auto flex gap-4 md:mr-0 md:gap-2 lg:gap-4">
+        <Button
+          variant="default"
+          size="sm"
+          onClick={sendNotification}
+          className="md:hidden"
+        >
+          Send Notification
+        </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="relative rounded-full">
@@ -103,6 +102,15 @@ function Header() {
             <DropdownMenuItem>Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+      </div>
+      <div className="hidden md:block ml-4">
+        <Button
+          variant="default"
+          size="sm"
+          onClick={sendNotification}
+        >
+          Send Notification
+        </Button>
       </div>
     </header>
   )
